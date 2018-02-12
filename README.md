@@ -1,7 +1,9 @@
 # Agents_i2a
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/0a5332a696ea4b06aa9f43a39f3f21f0)](https://www.codacy.com/app/jelabra/agents_i2a?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Arquisoft/agents_i2a&amp;utm_campaign=Badge_Grade)
+
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/c0c920d4630d42c3ac4e70dd6844715a)](https://www.codacy.com/app/jelabra/Agents_i2a?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Arquisoft/Agents_i2a&amp;utm_campaign=Badge_Grade)
 [![Build Status](https://travis-ci.org/Arquisoft/Agents_i2a.svg?branch=master)](https://travis-ci.org/Arquisoft/Agents_i2a)
 [![codecov](https://codecov.io/gh/Arquisoft/Agents_i2a/branch/master/graph/badge.svg)](https://codecov.io/gh/Arquisoft/Agents_i2a)
+
 Agents module
 
 # 17-18 Authors
