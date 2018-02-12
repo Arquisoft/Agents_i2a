@@ -30,7 +30,7 @@ In order to use the user credentials to obtain your data, you can send a POST re
 data in this request can come as:
  - JSON:
 ```json
-{"login":"yourLogin", "password":"yourpassword"}
+{"login": user, "password": password, "kind": agent's kind}
 ```
 
 - XML:
