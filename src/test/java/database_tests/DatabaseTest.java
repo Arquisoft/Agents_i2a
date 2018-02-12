@@ -118,7 +118,7 @@ public class DatabaseTest {
     	 Assert.assertEquals(user.getLastName(), userInfo.getLastName());
     	 Assert.assertEquals(user.getEmail(), userInfo.getEmail());
     	 Assert.assertEquals(user.getUserId(), userInfo.getUserId());
-    	 Assert.assertEquals(27, userInfo.getAge());
+    	 Assert.assertEquals(28, userInfo.getAge());
     	 
     	 user.setFirstName("Pepa");
     	 user.setLastName("Trump");

@@ -91,7 +91,7 @@ public class ParticipantsDataControllerTest {
 							.andExpect(status().isOk()) //The state of the response must be OK. (200);
 							.andExpect(jsonPath("$.firstName",is(maria.getFirstName()))) //We can do jsonpaths in order to check that the json information displayes its ok.
                             .andExpect(jsonPath("$.lastName", is(maria.getLastName())))
-                            .andExpect(jsonPath("$.age", is(27)))//Born in 1996
+                            .andExpect(jsonPath("$.age", is(28)))//Born in 1996
                             .andExpect(jsonPath("$.userId", is(maria.getUserId())))
                             .andExpect(jsonPath("$.email", is(maria.getEmail())));
 	}
@@ -108,7 +108,7 @@ public class ParticipantsDataControllerTest {
                 .andExpect(status().isOk()) //The state of the response must be OK. (200);
                 .andExpect(jsonPath("$.firstName",is(maria.getFirstName()))) //We can do jsonpaths in order to check that the json information displayes its ok.
                 .andExpect(jsonPath("$.lastName", is(maria.getLastName())))
-                .andExpect(jsonPath("$.age", is(27)))//Born in 1996
+                .andExpect(jsonPath("$.age", is(28)))//Born in 1996
                 .andExpect(jsonPath("$.userId", is(maria.getUserId())))
                 .andExpect(jsonPath("$.email", is(maria.getEmail())));
     }
@@ -176,7 +176,7 @@ public class ParticipantsDataControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.firstName",is(maria.getFirstName())))
                 .andExpect(jsonPath("$.lastName", is(maria.getLastName())))
-                .andExpect(jsonPath("$.age", is(27)))
+                .andExpect(jsonPath("$.age", is(28)))
                 .andExpect(jsonPath("$.userId", is(maria.getUserId())))
                 .andExpect(jsonPath("$.email", is(maria.getEmail())));
     }

@@ -37,7 +37,7 @@ public class UserAdapterTest {
         assertEquals(info.getLastName(), user1.getLastName());
         assertEquals(info.getEmail(), user1.getEmail());
         assertEquals(info.getUserId(), user1.getUserId());
-        assertEquals(info.getAge(), 21);
+        assertEquals(info.getAge(), 22);
     }
 
     @Test
