@@ -6,16 +6,16 @@ import domain.UserInfoAdapter;
 import domain.UserLoginData;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import services.AgentsService;
+import services.ParticipanntsService;
 
 /**
  * Created by Nicolás on 17/02/2017.
  * Class that handles the login data response. Access the service layer and recovers the user
  */
 public class UserResponseAction {
-    private final AgentsService part;
+    private final ParticipantsService part;
 
-    UserResponseAction(AgentsService part){
+    UserResponseAction(ParticipantsService part){
         this.part = part;
     }
 
