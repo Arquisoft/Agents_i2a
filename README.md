@@ -1,6 +1,6 @@
 # Agents_i2a
 
-Skeleton of participants module
+Skeleton of agents module
 
 # Authors
 
