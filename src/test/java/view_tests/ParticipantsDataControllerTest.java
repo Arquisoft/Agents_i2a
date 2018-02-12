@@ -4,7 +4,6 @@ package view_tests;
  * Created by Jorge.
  * Test for the ParticipantsDataController, mainly focused on REST requests
  */
-import com.gargoylesoftware.htmlunit.WebClient;
 import dbmanagement.UsersRepository;
 import domain.User;
 import main.Application;
@@ -12,7 +11,6 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.MockitoAnnotations;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
@@ -39,8 +37,6 @@ public class ParticipantsDataControllerTest {
     @Autowired
     private WebApplicationContext context;
 
-    @Autowired
-    private ParticipantsService service;
 
 	//MockMvc --> Para realizar peticiones y comprobar resultado, usado para respuestas con informacion json.
 	private MockMvc mockMvc;
