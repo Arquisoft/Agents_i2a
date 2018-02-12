@@ -6,7 +6,7 @@ import domain.UserInfoAdapter;
 import domain.UserLoginData;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import services.ParticipanntsService;
+import services.ParticipantsService;
 
 /**
  * Created by Nicolás on 17/02/2017.
