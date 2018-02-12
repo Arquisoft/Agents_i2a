@@ -1,19 +1,19 @@
 # Agents_i2a
-
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/0a5332a696ea4b06aa9f43a39f3f21f0)](https://www.codacy.com/app/jelabra/agents_i2a?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Arquisoft/agents_i2a&amp;utm_campaign=Badge_Grade)
+[![Build Status](https://travis-ci.org/Arquisoft/agents_i2a.svg?branch=master)](https://travis-ci.org/Arquisoft/agents_i2a)[![codecov](https://codecov.io/gh/Arquisoft/agents_i2a/branch/master/graph/badge.svg)](https://codecov.io/gh/Arquisoft/agents_i2a)
 Skeleton of agents module
-
-# Authors
-
-- Herminio García González (@herminiogg)
-- Jose Emilio Labra Gayo (@labra)
-- Jorge Zapatero Sánchez (@JorgeZapa)
-- Damián Rubio Cuervo (@DamianRubio)
-- Antonio Nicolás Rivero Gómez (@Lan5432)
 
 # 17-18 Authors
 - [Marcos Chacón Cadenas](https://github.com/chacon11)
 - [Alba Cotarelo Tuñón](https://github.com/albacotarelo)
 - [Javier Díez García](https://github.com/javicodema)
+
+# Previous authors
+- Herminio García González (@herminiogg)
+- Jose Emilio Labra Gayo (@labra)
+- Jorge Zapatero Sánchez (@JorgeZapa)
+- Damián Rubio Cuervo (@DamianRubio)
+- Antonio Nicolás Rivero Gómez (@Lan5432)
 
 # MongoDB
 This project uses MongoDB as the database. You can check how to use it on
