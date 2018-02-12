@@ -74,13 +74,13 @@ public class DatabaseTest {
     }
 
     @Test
-    public void testGetParticipant(){
+    public void testGetAgent(){
     	//It should be previously encoded if the DB is given so this may be changed.
-        User user = dat.getParticipant("LGracia@gmail.com");
+        User user = dat.getAgent("LGracia@gmail.com");
         user.setNationality("USA");
         Assert.assertEquals(user.getNationality(), "USA");
         Assert.assertNotEquals(testedUser.getNationality(), user.getNationality());
-        User DBUser = dat.getParticipant("LGracia@gmail.com"); //just in case, same as before.
+        User DBUser = dat.getAgent("LGracia@gmail.com"); //just in case, same as before.
         Assert.assertNotEquals(user.getNationality(), DBUser.getNationality()); //Should be different from as we changed a transient one.
     }
     
@@ -88,11 +88,11 @@ public class DatabaseTest {
     @Test
     public void testUpdateInfoWithPassword(){
     	//It should be previously encoded if the DB is given so this may be changed.
-        User user = dat.getParticipant("LGracia@gmail.com");
+        User user = dat.getAgent("LGracia@gmail.com");
         user.setPassword("confidencial");
         JasyptEncryptor encryptor = new JasyptEncryptor();
         dat.updateInfo(user);
-        User userAfter = dat.getParticipant("LGracia@gmail.com");
+        User userAfter = dat.getAgent("LGracia@gmail.com");
         Assert.assertTrue(encryptor.checkPassword("confidencial", userAfter.getPassword())); //They should be the same when we introduce the password.
         Assert.assertEquals(user, userAfter); //They should be the same user by the equals.
         
@@ -101,7 +101,7 @@ public class DatabaseTest {
     
     @Test
     public void testUpdateInfoAndAdaptation(){
-    	 User user = dat.getParticipant("asd");
+    	 User user = dat.getAgent("asd");
     	 Assert.assertEquals("Maria", user.getFirstName());
     	 Assert.assertEquals("MamaMia", user.getLastName());
     	 Assert.assertEquals(user2cal.getTime(), user.getDateOfBirth());
@@ -124,7 +124,7 @@ public class DatabaseTest {
     	 user.setLastName("Trump");
     	 
     	 dat.updateInfo(user);
-    	 User updatedUser = dat.getParticipant("asd");
+    	 User updatedUser = dat.getAgent("asd");
     	 Assert.assertEquals("Pepa", updatedUser.getFirstName());
     	 Assert.assertEquals("Trump", updatedUser.getLastName());
     	 Assert.assertEquals(user2cal.getTime(), updatedUser.getDateOfBirth());

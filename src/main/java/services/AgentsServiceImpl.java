@@ -10,7 +10,7 @@ import util.JasyptEncryptor;
  * Created by Nicolás on 14/02/2017.
  */
 @Service
-public class PartipantsServiceImpl implements ParticipantsService {
+public class AgentsServiceImpl implements AgentsService {
 
     private final Database dat;
     private final JasyptEncryptor encryptor = new JasyptEncryptor();
@@ -21,8 +21,8 @@ public class PartipantsServiceImpl implements ParticipantsService {
     }
 
     @Override
-    public User getParticipant(String email, String password) {
-        User user = dat.getParticipant(email);
+    public User getAgent(String email, String password) {
+        User user = dat.getAgent(email);
         if(user != null && encryptor.checkPassword(password, user.getPassword()))
             return user;
         else return null;

@@ -7,15 +7,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import services.ParticipantsService;
+import services.AgentsService;
 
 @RestController
-public class ParticipantsDataController {
+public class AgentsDataController {
 
-    private final ParticipantsService part;
+    private final AgentsService part;
 
     @Autowired
-    ParticipantsDataController(ParticipantsService part){
+    AgentsDataController(AgentsService part){
         this.part = part;
     }
 

@@ -5,7 +5,7 @@ import domain.UserInfo;
 import domain.UserInfoAdapter;
 import domain.UserLoginData;
 import org.springframework.web.bind.annotation.*;
-import services.ParticipantsService;
+import services.AgentsService;
 import util.JasyptEncryptor;
 
 import org.springframework.stereotype.Controller;
@@ -18,17 +18,17 @@ import javax.servlet.http.HttpSession;
  * Created by Nicolás on 08/02/2017.
  */
 @Controller
-public class ParticipantsController {
+public class AgentsController {
 
-    private final ParticipantsService part;
+    private final AgentsService part;
 
-    ParticipantsController(ParticipantsService part){
+    AgentsController(AgentsService part){
         this.part = part;
     }
 
     //The first page shown will be login.html.
     @GetMapping(value="/")
-    public String getParticipantInfo(Model model) {
+    public String getAgentInfo(Model model) {
         model.addAttribute("userinfo", new UserLoginData());
         return "login";
     }
@@ -36,7 +36,7 @@ public class ParticipantsController {
     //This method process an POST html request once fulfilled the login.html form (clicking in the "Enter" button).
     @RequestMapping(value = "/userForm", method = RequestMethod.POST)
     public String showInfo(Model model, @ModelAttribute UserLoginData data, HttpSession session){
-        User user = part.getParticipant(data.getLogin(), data.getPassword());
+        User user = part.getAgent(data.getLogin(), data.getPassword());
         if(user == null){
             throw new UserNotFoundException();
         }

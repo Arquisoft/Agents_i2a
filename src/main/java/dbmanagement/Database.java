@@ -11,6 +11,6 @@ public interface Database {
 
     void updateInfo(User user);
 
-    User getParticipant(String email);
+    User getAgent(String email);
 
 }
