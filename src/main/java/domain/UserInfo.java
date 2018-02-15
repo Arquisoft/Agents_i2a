@@ -10,6 +10,10 @@ import java.io.Serializable;
  */
 public class UserInfo implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String name;
 	private String location;
 	private String email;
@@ -80,13 +84,13 @@ public class UserInfo implements Serializable {
 
 	@Override
 	public String toString() {
-		final StringBuilder sb = new StringBuilder("UserInfo{");
+		final StringBuilder sb = new StringBuilder("{");
 		sb.append("name='").append(name).append('\'');
-		sb.append(", location='").append(location).append('\'');
-		sb.append(", email='").append(email).append('\'');
-		sb.append(", id='").append(id).append('\'');
-		sb.append(", kind='").append(kind).append('\'');
-		sb.append(", kindCode=").append(kindCode);
+		sb.append(",location='").append(location).append('\'');
+		sb.append(",email='").append(email).append('\'');
+		sb.append(",id='").append(id).append('\'');
+		sb.append(",kind='").append(kind).append('\'');
+		sb.append(",kindCode='").append(kindCode).append("'");
 		sb.append('}');
 		return sb.toString();
 	}

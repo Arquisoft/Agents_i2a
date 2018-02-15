@@ -1,21 +1,26 @@
 package view;
 
+import javax.servlet.http.HttpSession;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+
 import domain.User;
 import domain.UserInfo;
 import domain.UserInfoAdapter;
 import domain.UserLoginData;
-import org.springframework.web.bind.annotation.*;
 import services.ParticipantsService;
 import util.JasyptEncryptor;
-
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-
-import javax.servlet.http.HttpSession;
 
 
 /**
  * Created by Nicolás on 08/02/2017.
+ * Modified by Javier on 15/02/2018 to match the new requirements.
  */
 @Controller
 public class ParticipantsController {
@@ -43,10 +48,11 @@ public class ParticipantsController {
         else {
             UserInfoAdapter adapter = new UserInfoAdapter(user);
             UserInfo info = adapter.userToInfo();
-            model.addAttribute("fName", info.getFirstName());
-            model.addAttribute("lName", info.getLastName());
-            model.addAttribute("age", info.getAge());
+            model.addAttribute("name", info.getName());
+            model.addAttribute("location", info.getLocation());
             model.addAttribute("email", info.getEmail());
+            model.addAttribute("kind", info.getKind());
+            model.addAttribute("kindCode", info.getKindCode());
             model.addAttribute("user", user);
             session.setAttribute("user", user);
             return "data";
