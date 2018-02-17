@@ -15,7 +15,7 @@ public interface ParticipantsService {
      * @param password The password given on the credentials
      * @return Either the proper user, if the user exists and the password matches. Null otherwise
      */
-    User getAgent(String email, String password);
+    User getAgent(String email, String password, String kind);
 
     /**
      * Updates the password for the given user

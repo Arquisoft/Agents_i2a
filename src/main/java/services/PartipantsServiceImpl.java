@@ -1,9 +1,10 @@
 package services;
 
-import dbmanagement.Database;
-import domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import dbmanagement.Database;
+import domain.User;
 import util.JasyptEncryptor;
 
 /**
@@ -21,7 +22,7 @@ public class PartipantsServiceImpl implements ParticipantsService {
     }
 
     @Override
-    public User getAgent(String email, String password) {
+    public User getAgent(String email, String password, String kind) {
         User user = dat.getAgent(email);
         if(user != null && encryptor.checkPassword(password, user.getPassword()))
             return user;

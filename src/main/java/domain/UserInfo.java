@@ -3,93 +3,111 @@ package domain;
 import java.io.Serializable;
 
 /**
- * Created by Nicolás on 15/02/2017.
- * Class that serves as a response for the service, providing a subset of the User class' fields
+ * Created by Nicolas on 15/02/2017. Class that serves as a response for the
+ * service, providing a subset of the User class' fields
+ * Modified by Javier on 13/02/2018 to match the new requirements.
+ * 
  */
-public class UserInfo implements Serializable{
+public class UserInfo implements Serializable {
 
-    private String firstName;
-    private String lastName;
-    private int age;
-    private String userId;
-    private String email;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private String name;
+	private String location;
+	private String email;
+	private String id;
+	private String kind;
+	private int kindCode;
 
-    UserInfo(){
+	UserInfo() {
 
-    }
+	}
 
-    public UserInfo(String firstName, String lastName, int age, String userId, String email) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.age = age;
-        this.userId = userId;
-        this.email = email;
-    }
+	public UserInfo(String name, String location, String email, String id, String kind, int kindCode) {
+		this.name = name;
+		this.location = location;
+		this.email = email;
+		this.id = id;
+		this.kind = kind;
+		this.kindCode = kindCode;
+	}
 
-    public String getFirstName() {
-        return firstName;
-    }
+	public String getName() {
+		return name;
+	}
 
-    public String getLastName() {
-        return lastName;
-    }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-    public int getAge() {
-        return age;
-    }
+	public String getLocation() {
+		return location;
+	}
 
-    public String getUserId() {
-        return userId;
-    }
+	public void setLocation(String location) {
+		this.location = location;
+	}
 
-    public String getEmail() {
-        return email;
-    }
+	public String getId() {
+		return id;
+	}
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
+	public void setId(String id) {
+		this.id = id;
+	}
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
+	public String getKind() {
+		return kind;
+	}
 
-    public void setAge(int age) {
-        this.age = age;
-    }
+	public void setKind(String kind) {
+		this.kind = kind;
+	}
 
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
+	public int getKindCode() {
+		return kindCode;
+	}
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+	public void setKindCode(int kindCode) {
+		this.kindCode = kindCode;
+	}
 
-    @Override
-    public String toString() {
-        final StringBuilder sb = new StringBuilder("UserInfo{");
-        sb.append("firstName='").append(firstName).append('\'');
-        sb.append(", lastName='").append(lastName).append('\'');
-        sb.append(", age=").append(age);
-        sb.append(", userId='").append(userId).append('\'');
-        sb.append(", email='").append(email).append('\'');
-        sb.append('}');
-        return sb.toString();
-    }
+	public String getEmail() {
+		return email;
+	}
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
-        UserInfo userInfo = (UserInfo) o;
+	@Override
+	public String toString() {
+		final StringBuilder sb = new StringBuilder("{");
+		sb.append("name='").append(name).append('\'');
+		sb.append(",location='").append(location).append('\'');
+		sb.append(",email='").append(email).append('\'');
+		sb.append(",id='").append(id).append('\'');
+		sb.append(",kind='").append(kind).append('\'');
+		sb.append(",kindCode='").append(kindCode).append("'");
+		sb.append('}');
+		return sb.toString();
+	}
 
-        return userId.equals(userInfo.userId);
-    }
+	@Override
+	public boolean equals(Object o) {
+		if (this == o)
+			return true;
+		if (o == null || getClass() != o.getClass())
+			return false;
 
-    @Override
-    public int hashCode() {
-        return userId.hashCode();
-    }
+		UserInfo userInfo = (UserInfo) o;
+		return id.equals(userInfo.id);
+	}
+
+	@Override
+	public int hashCode() {
+		return id.hashCode();
+	}
 }
