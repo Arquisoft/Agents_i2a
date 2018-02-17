@@ -45,13 +45,17 @@ Optional tools:
 	Open command prompt int the bin folder where you have MongoDB, the path will be similar to this
 		> ~\MongoDB\Server\3.6\bin
 	Execute the following command:
-		> mongoimport --db <your database name> --collection <your collection name> --file <you file name>.json
-	You can check that the document has been added to the database by running Robomongo and going to the corresponding collection.
+		> mongoimport --db aswdb --collection users --file <your file name>.json
+	Where "aswdb" is the name of the database, "users" is the name of the collection and "your file name" 
+	is the path where you have your JSON.
+	You can check that the document has been added to the database by running Robomongo and going to 
+	the corresponding collection of the database.
 	
 	Notes: MongoDB stores documents in collections. Collections are analogous to tables in relational databases.
 	
 ### **5. Start using the application**
-	Open http://localhost:8080/ on you navigator and login to use the application.
+	Open http://localhost:8080/ on you navigator and login to use the application. To test it, you can follow
+	the steps described in [Tests](##Tests).
 
 
 # More information
