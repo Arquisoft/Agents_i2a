@@ -23,7 +23,7 @@ public class User {
 	private String password;
 	private String userId;
 	private String kind;
-	private long kindCode;
+	private int kindCode;
 
 	User() {
 
@@ -36,7 +36,7 @@ public class User {
 	}
 
 	public User(String name, String location, String email, String password, String userId, String kind,
-			long kindCode) {
+			int kindCode) {
 		this(name, email, password);
 		this.location = location;
 		this.kind = kind;
@@ -119,11 +119,11 @@ public class User {
 		this.kind = kind;
 	}
 
-	public long getKindCode() {
+	public int getKindCode() {
 		return kindCode;
 	}
 
-	public void setKindCode(long kindCode) {
+	public void setKindCode(int kindCode) {
 		this.kindCode = kindCode;
 	}
 

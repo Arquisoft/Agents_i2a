@@ -13,7 +13,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface UsersRepository extends MongoRepository<User, ObjectId>{
 
-    User findByName(String name);
+    User findByEmail(String email);
     User findByEmailAndPassword(String email, String password);
-
 }

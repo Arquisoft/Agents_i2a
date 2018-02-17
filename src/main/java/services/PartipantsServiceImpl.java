@@ -1,14 +1,14 @@
 package services;
 
-import dbmanagement.Database;
-import domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import dbmanagement.Database;
+import domain.User;
 import util.JasyptEncryptor;
 
 /**
  * Created by Nicolás on 14/02/2017.
- * Modified by Marcos on 17/02/2018
  */
 @Service
 public class PartipantsServiceImpl implements ParticipantsService {
@@ -22,14 +22,11 @@ public class PartipantsServiceImpl implements ParticipantsService {
     }
 
     @Override
-    public User getAgent(String name, String password, String kind) {
-    	User user = dat.getAgent(name);
-    	System.out.println(user);
-    	if (user != null && encryptor.checkPassword(password, user.getPassword())
-    		&& user.getKind() == kind)
-    	    return user;
-    	else
-    	    return null;
+    public User getAgent(String email, String password, String kind) {
+        User user = dat.getAgent(email);
+        if(user != null && encryptor.checkPassword(password, user.getPassword()))
+            return user;
+        else return null;
     }
 
     @Override

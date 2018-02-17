@@ -19,13 +19,13 @@ public class UserInfo implements Serializable {
 	private String email;
 	private String id;
 	private String kind;
-	private long kindCode;
+	private int kindCode;
 
 	UserInfo() {
 
 	}
 
-	public UserInfo(String name, String location, String email, String id, String kind, long kindCode) {
+	public UserInfo(String name, String location, String email, String id, String kind, int kindCode) {
 		this.name = name;
 		this.location = location;
 		this.email = email;
@@ -66,11 +66,11 @@ public class UserInfo implements Serializable {
 		this.kind = kind;
 	}
 
-	public long getKindCode() {
+	public int getKindCode() {
 		return kindCode;
 	}
 
-	public void setKindCode(long kindCode) {
+	public void setKindCode(int kindCode) {
 		this.kindCode = kindCode;
 	}
 

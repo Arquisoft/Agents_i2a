@@ -54,7 +54,7 @@ public class ParticipantsController {
             model.addAttribute("kind", info.getKind());
             model.addAttribute("kindCode", info.getKindCode());
             model.addAttribute("user", user);
-           // session.setAttribute("user", user);
+            session.setAttribute("user", user);
             return "data";
         }
     }
