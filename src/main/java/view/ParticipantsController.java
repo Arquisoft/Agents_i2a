@@ -41,7 +41,7 @@ public class ParticipantsController {
     //This method process an POST html request once fulfilled the login.html form (clicking in the "Enter" button).
     @RequestMapping(value = "/userForm", method = RequestMethod.POST)
     public String showInfo(Model model, @ModelAttribute UserLoginData data, HttpSession session){
-        User user = part.getAgent(data.getLogin(), data.getPassword());
+        User user = part.getAgent(data.getLogin(), data.getPassword(), data.getKind());
         if(user == null){
             throw new UserNotFoundException();
         }
@@ -54,7 +54,7 @@ public class ParticipantsController {
             model.addAttribute("kind", info.getKind());
             model.addAttribute("kindCode", info.getKindCode());
             model.addAttribute("user", user);
-            session.setAttribute("user", user);
+           // session.setAttribute("user", user);
             return "data";
         }
     }

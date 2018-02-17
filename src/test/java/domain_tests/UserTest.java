@@ -1,75 +1,86 @@
 package domain_tests;
 
-import domain.User;
-import util.JasyptEncryptor;
-
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
+import domain.User;
+import util.JasyptEncryptor;
 
 /**
  * Created by Damian on 15/02/2017.
+ * Modified by Marcos on 17/02/2018
  */
 public class UserTest {
 
-    private User nico;
-    private User jorge;
-    private User damian;
+    private User marcos;
+    private User alba;
+    private User javier;
 
     @Before
     public void setUp(){
-        Calendar cal = Calendar.getInstance();
-        cal.set(1996, Calendar.JUNE, 12);
-        nico = new User("Nicolás", "Rivero", "nico@nicomail.com","nico123");
-        jorge = new User("Jorge", "Zapatero", "jorge@jorgemail.com", "jorge123", cal.getTime(), "C/ La calle", "España", "111111111A");
-        cal.set(1997, Calendar.AUGUST, 1);
-        damian = new User("Damian", "Rubio", "damian@damianmail.com", "damian123", cal.getTime(), "C/ The street", "Inglaterra", "222222222B");
+        marcos = new User("Marcos", "Oviedo", "User1@hola.com", "user1Password", "10", "Person", 1);
+        alba = new User("Alba", "Gijon", "User2@hola.com", "user2Password", "11", "Person", 1);
+        javier = new User("Javier", "Aviles", "User3@hola.com", "user3Password", "12", "Person", 1);
     }
 
     @Test
     public void firstNameTest(){
-        Assert.assertEquals("Nicolás", nico.getFirstName());
-        Assert.assertEquals("Jorge", jorge.getFirstName());
-        Assert.assertEquals("Damian", damian.getFirstName());
+        Assert.assertEquals("Marcos", marcos.getName());
+        Assert.assertEquals("Alba", alba.getName());
+        Assert.assertEquals("Javier", javier.getName());
 
-        nico.setFirstName("Antonio");
-        Assert.assertEquals("Antonio", nico.getFirstName());
+        marcos.setName("Antonio");
+        Assert.assertEquals("Antonio", marcos.getName());
 
-        jorge.setFirstName("Pepe");
-        Assert.assertEquals("Pepe", jorge.getFirstName());
+        alba.setName("Pepe");
+        Assert.assertEquals("Pepe", alba.getName());
 
-        damian.setFirstName("Roberto");
-        Assert.assertEquals("Roberto", damian.getFirstName());
+        javier.setName("Roberto");
+        Assert.assertEquals("Roberto", javier.getName());
     }
-
+    
     @Test
-    public void lastNameTest(){
+    public void locationTest(){
+        Assert.assertEquals("Oviedo", marcos.getLocation());
+        Assert.assertEquals("Gijon", alba.getLocation());
+        Assert.assertEquals("Aviles", javier.getLocation());
 
-        nico.setLastName(jorge.getLastName());
-        Assert.assertEquals("Zapatero", nico.getLastName());
-
-        jorge.setLastName(damian.getLastName());
-        Assert.assertEquals("Rubio", jorge.getLastName());
-
-        damian.setLastName("Fernández");
-        Assert.assertEquals("Fernández", damian.getLastName());
+        marcos.setLocation("Madrid");
+        Assert.assertEquals("Madrid", marcos.getLocation());
     }
+    
+    @Test
+    public void kindTest(){
+        Assert.assertEquals("Person", marcos.getKind());
+        Assert.assertEquals("Person", alba.getKind());
+        Assert.assertEquals("Person", javier.getKind());
+
+        marcos.setKind("Sensor");
+        Assert.assertEquals("Sensor", marcos.getKind());
+    }  
+    
+    @Test
+    public void kindCodeTest(){
+        Assert.assertEquals(1, marcos.getKindCode());
+        Assert.assertEquals(1, alba.getKindCode());
+        Assert.assertEquals(1, javier.getKindCode());
+
+        marcos.setKindCode(2);
+        Assert.assertEquals(2, marcos.getKindCode());
+    } 
 
     @Test
     public void emailTest(){
 
-        nico.setEmail(damian.getEmail());
-        Assert.assertEquals("damian@damianmail.com", nico.getEmail());
+        marcos.setEmail(javier.getEmail());
+        Assert.assertEquals("User3@hola.com", marcos.getEmail());
 
-        jorge.setEmail("pepe@pepemail.com");
-        Assert.assertEquals("pepe@pepemail.com", jorge.getEmail());
+        alba.setEmail("pepe@pepemail.com");
+        Assert.assertEquals("pepe@pepemail.com", alba.getEmail());
 
-        damian.setEmail(jorge.getEmail());
-        Assert.assertEquals("pepe@pepemail.com", damian.getEmail());
+        javier.setEmail(alba.getEmail());
+        Assert.assertEquals("pepe@pepemail.com", javier.getEmail());
     }
 
     @Test
@@ -77,70 +88,26 @@ public class UserTest {
 
     	JasyptEncryptor encryptor = new JasyptEncryptor();
     	
-        nico.setPassword("1234");
+        marcos.setPassword("1234");
         
     
-        Assert.assertTrue(encryptor.checkPassword( "1234",nico.getPassword()));
+        Assert.assertTrue(encryptor.checkPassword( "1234",marcos.getPassword()));
 
-        jorge.setPassword("abcd");
-        Assert.assertTrue(encryptor.checkPassword( "abcd",jorge.getPassword()));
+        alba.setPassword("abcd");
+        Assert.assertTrue(encryptor.checkPassword( "abcd",alba.getPassword()));
 
-        damian.setPassword("yay");
-        Assert.assertTrue(encryptor.checkPassword( "yay",damian.getPassword()));
-    }
-
-    @Test
-    public void dateOfBirthTest(){
-        DateFormat format = new SimpleDateFormat("dd-MM-yyyy");
-        Calendar cal = Calendar.getInstance();
-
-        cal.set(1996, Calendar.JUNE, 12);
-        Assert.assertEquals(format.format(cal.getTime()), format.format(jorge.getDateOfBirth()));
-
-        cal.set(1996, Calendar.AUGUST, 12);
-        nico.setDateOfBirth(cal.getTime());
-        Assert.assertEquals(format.format(cal.getTime()), format.format(nico.getDateOfBirth()));
-
-        cal.set(1900, Calendar.FEBRUARY, 1);
-        damian.setDateOfBirth(cal.getTime());
-        Assert.assertEquals(format.format(cal.getTime()), format.format(damian.getDateOfBirth()));
-    }
-
-    @Test
-    public void addressTest(){
-
-        nico.setAddress("C/ Su calle");
-        Assert.assertEquals("C/ Su calle", nico.getAddress());
-
-        jorge.setAddress(damian.getAddress());
-        Assert.assertEquals("C/ The street", jorge.getAddress());
-
-        damian.setAddress(nico.getAddress());
-        Assert.assertEquals("C/ Su calle", damian.getAddress());
-    }
-
-    @Test
-    public void nationalityTest(){
-
-        Assert.assertEquals(null, nico.getNationality());
-        nico.setNationality("Swazilandia");
-        Assert.assertEquals("Swazilandia", nico.getNationality());
-
-        jorge.setNationality(damian.getNationality());
-        Assert.assertEquals("Inglaterra", jorge.getNationality());
-
-        damian.setNationality(nico.getNationality());
-        Assert.assertEquals("Swazilandia", damian.getNationality());
+        javier.setPassword("yay");
+        Assert.assertTrue(encryptor.checkPassword( "yay",javier.getPassword()));
     }
 
     @Test
     public void nifTest(){
 
-        Assert.assertEquals(null, nico.getUserId());
+        Assert.assertEquals("10", marcos.getUserId());
 
-        Assert.assertEquals("111111111A", jorge.getUserId());
+        Assert.assertEquals("11", alba.getUserId());
 
-        Assert.assertEquals("222222222B", damian.getUserId());
+        Assert.assertEquals("12", javier.getUserId());
     }
 
 }
