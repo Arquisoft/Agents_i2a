@@ -55,7 +55,33 @@ Optional tools:
 	
 ### **5. Start using the application**
 	Open http://localhost:8080/ on you navigator and login to use the application. To test it, you can follow
-	the steps described in [Tests](#Tests).
+	the steps described in the next point.
+
+### **6. Test the application**
+To run the tests just use `mvn test`. No data in the database is needed to run them. But if you want to test the
+user interface manually you'll have to introduce this document:
+
+```json
+{
+    "_id" : ObjectId("58a8670df086e81dc034d7fc"),
+    "firstName" : "Prueba01",
+    "lastName" : "Apellido01",
+    "email" : "prueba01@prueba.es",
+    "address" : "c/Prueba n0 1a",
+    "nationality" : "España",
+    "userId" : "00000001J",
+    "dateOfBirth" : ISODate("1981-12-27T23:00:00.000Z"),
+    "password" : "khZZwjdhWwVbMdmOvz9eqBfKR1N6A+CdFBDM9c1dQduUnGewQyPRlBxB4Q6wT7Cq"
+}
+```
+
+And as data use:
+ - login: prueba01@prueba.es
+ - password: 4[[j[frVCUMJ>hU
+
+ If you have the data and the database running and the application still reports a 404 Not Found when it shouldn't
+ try deleting the document and adding it again.
+
 
 
 # More information
@@ -83,27 +109,3 @@ data in this request can come as:
 </data>
 ```
 
-## Tests
-To run the tests just use `mvn test`. No data in the database is needed to run them. But if you want to test the
-user interface manually you'll have to introduce this document:
-
-```json
-{
-    "_id" : ObjectId("58a8670df086e81dc034d7fc"),
-    "firstName" : "Prueba01",
-    "lastName" : "Apellido01",
-    "email" : "prueba01@prueba.es",
-    "address" : "c/Prueba n0 1a",
-    "nationality" : "España",
-    "userId" : "00000001J",
-    "dateOfBirth" : ISODate("1981-12-27T23:00:00.000Z"),
-    "password" : "khZZwjdhWwVbMdmOvz9eqBfKR1N6A+CdFBDM9c1dQduUnGewQyPRlBxB4Q6wT7Cq"
-}
-```
-
-And as data use:
- - login: prueba01@prueba.es
- - password: 4[[j[frVCUMJ>hU
-
- If you have the data and the database running and the application still reports a 404 Not Found when it shouldn't
- try deleting the document and adding it again.
