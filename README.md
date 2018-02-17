@@ -19,9 +19,9 @@ Agents module
 - Antonio Nicolás Rivero Gómez (@Lan5432)
 
 
-## Get started with the application
+# Get started with the application
 
-**1. Software needed**
+### **1. Software needed**
 You will need to have installed in your computer the following software products:
 	- [Maven](https://maven.apache.org/install.html)
 	- [MongoDB](https://github.com/Arquisoft/participants_i2b/wiki/MongoDB)
@@ -29,20 +29,20 @@ You will need to have installed in your computer the following software products
 Optional tools:
 	- [Robomongo](https://robomongo.org/)
 	
-**2. Run the project**
+### **2. Run the project**
 	Download the project and go to its directory, open there a command prompt 
 	and execute:
 	> mvn spring-boot:run
 	Now the application is running if all it's correct.
 	
-**3. Run the database**
+### **3. Run the database**
 Open command prompt int the bin folder where you have MongoDB, the path will be similar to this
 	> ~\MongoDB\Server\3.6\bin
 Execute:
 	> mongod.exe --dbpath <your database path>
 Replace <your database path> with the path to the directory where you want to create your database.	
 	
-**4. Insert JSON documents in MongoDB database**
+### **4. Insert JSON documents in MongoDB database**
 Open command prompt int the bin folder where you have MongoDB, the path will be similar to this
 	> ~\MongoDB\Server\3.6\bin
 Execute the following command:
@@ -51,7 +51,7 @@ You can check that the document has been added to the database by running Robomo
 	
 Notes: MongoDB stores documents in collections. Collections are analogous to tables in relational databases.
 	
-**5. Start using the application**
+### **5. Start using the application**
 Open http://localhost:8080/ on you navigator and login to use the application.
 
 
