@@ -55,7 +55,7 @@ Optional tools:
 	
 ### **5. Start using the application**
 	Open http://localhost:8080/ on you navigator and login to use the application. To test it, you can follow
-	the steps described in [Tests](##Tests).
+	the steps described in [Tests](#Tests).
 
 
 # More information
