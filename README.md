@@ -22,11 +22,11 @@ Agents module
 ## Get started with the application
 
 **1. Software needed**
-	You will need to have installed in your computer the following software products:
+You will need to have installed in your computer the following software products:
 	- [Maven](https://maven.apache.org/install.html)
 	- [MongoDB](https://github.com/Arquisoft/participants_i2b/wiki/MongoDB)
 	
-	Optional tools:
+Optional tools:
 	- [Robomongo](https://robomongo.org/)
 	
 **2. Run the project**
@@ -36,25 +36,23 @@ Agents module
 	Now the application is running if all it's correct.
 	
 **3. Run the database**
-	Open command prompt int the bin folder where you have MongoDB, the path will be similar to this
+Open command prompt int the bin folder where you have MongoDB, the path will be similar to this
 	> ~\MongoDB\Server\3.6\bin
-	Execute:
+Execute:
 	> mongod.exe --dbpath <your database path>
-	Replace <your database path> with the path to the directory where you want to create
-	your database.	
+Replace <your database path> with the path to the directory where you want to create your database.	
 	
 **4. Insert JSON documents in MongoDB database**
-	4.1 Open command prompt int the bin folder where you have MongoDB, the path will be similar to this
-		> ~\MongoDB\Server\3.6\bin
-	4.2 Execute the following command:
-		> mongoimport --db <your database name> --collection <your collection name> --file <you file name>.json
-	4.3 You can check that the document has been added to the database by running Robomongo 
-		and going to the corresponding collection.
+Open command prompt int the bin folder where you have MongoDB, the path will be similar to this
+	> ~\MongoDB\Server\3.6\bin
+Execute the following command:
+	> mongoimport --db <your database name> --collection <your collection name> --file <you file name>.json
+You can check that the document has been added to the database by running Robomongo and going to the corresponding collection.
 	
-	Notes: MongoDB stores documents in collections. Collections are analogous to tables in relational databases.
+Notes: MongoDB stores documents in collections. Collections are analogous to tables in relational databases.
 	
-**5. Start using the application
-	Open http://localhost:8080/ on you navigator and login to use the application.
+**5. Start using the application**
+Open http://localhost:8080/ on you navigator and login to use the application.
 
 
 # More information
