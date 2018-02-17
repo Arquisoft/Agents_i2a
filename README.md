@@ -30,29 +30,28 @@ Optional tools:
 	- [Robomongo](https://robomongo.org/)
 	
 ### **2. Run the project**
-	Download the project and go to its directory, open there a command prompt 
-	and execute:
-	> mvn spring-boot:run
+	Download the project and go to its directory, open there a command prompt and execute:
+		> mvn spring-boot:run
 	Now the application is running if all it's correct.
 	
 ### **3. Run the database**
-Open command prompt int the bin folder where you have MongoDB, the path will be similar to this
-	> ~\MongoDB\Server\3.6\bin
-Execute:
-	> mongod.exe --dbpath <your database path>
-Replace <your database path> with the path to the directory where you want to create your database.	
+	Open command prompt int the bin folder where you have MongoDB, the path will be similar to this
+		> ~\MongoDB\Server\3.6\bin
+	Execute:
+		> mongod.exe --dbpath <your database path>
+	Replace <your database path> with the path to the directory where you want to create your database.	
 	
 ### **4. Insert JSON documents in MongoDB database**
-Open command prompt int the bin folder where you have MongoDB, the path will be similar to this
-	> ~\MongoDB\Server\3.6\bin
-Execute the following command:
-	> mongoimport --db <your database name> --collection <your collection name> --file <you file name>.json
-You can check that the document has been added to the database by running Robomongo and going to the corresponding collection.
+	Open command prompt int the bin folder where you have MongoDB, the path will be similar to this
+		> ~\MongoDB\Server\3.6\bin
+	Execute the following command:
+		> mongoimport --db <your database name> --collection <your collection name> --file <you file name>.json
+	You can check that the document has been added to the database by running Robomongo and going to the corresponding collection.
 	
-Notes: MongoDB stores documents in collections. Collections are analogous to tables in relational databases.
+	Notes: MongoDB stores documents in collections. Collections are analogous to tables in relational databases.
 	
 ### **5. Start using the application**
-Open http://localhost:8080/ on you navigator and login to use the application.
+	Open http://localhost:8080/ on you navigator and login to use the application.
 
 
 # More information
