@@ -6,7 +6,7 @@ import domain.UserInfoAdapter;
 import domain.UserLoginData;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import services.ParticipantsService;
+import services.AgentsService;
 
 /**
  * Created by Nicolás on 17/02/2017.
@@ -14,9 +14,9 @@ import services.ParticipantsService;
  * Modified by Marcos on 17/02/2018
  */
 public class UserResponseAction {
-    private final ParticipantsService part;
+    private final AgentsService part;
 
-    UserResponseAction(ParticipantsService part){
+    UserResponseAction(AgentsService part){
         this.part = part;
     }
 

@@ -1,6 +1,7 @@
 package view_tests;
 
 import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.assertFalse;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
@@ -28,6 +29,7 @@ import org.springframework.web.context.WebApplicationContext;
 import dbmanagement.UsersRepository;
 import domain.User;
 import main.Application;
+import view.UserNotFoundException;
 
 @SpringBootTest(classes = { Application.class })
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -74,15 +76,22 @@ public class AgentsDataControllerTest {
 		// We send a POST request to that URI (from http:localhost...)
 		MockHttpServletRequestBuilder request = post("/user").session(session).contentType(MediaType.APPLICATION_JSON)
 				.content(payload.getBytes());
-		mockMvc.perform(request).andDo(print())
-				// The state of the response must be OK. (200);
-				.andExpect(status().isOk())
-				// We can do jsonpaths in order to check 1996
-				.andExpect(jsonPath("$.name", is(javier.getName())))
-				.andExpect(jsonPath("$.location", is(javier.getLocation())))
-				.andExpect(jsonPath("$.email", is(javier.getEmail())))
-				.andExpect(jsonPath("$.id", is(javier.getUserId()))).andExpect(jsonPath("$.kind", is(javier.getKind())))
-				.andExpect(jsonPath("$.kindCode", is(javier.getKindCode())));
+		boolean thrown = false;
+		try {
+			mockMvc.perform(request).andDo(print())
+					// The state of the response must be OK. (200);
+					.andExpect(status().isOk())
+					// We can do jsonpaths in order to check 1996
+					.andExpect(jsonPath("$.name", is(javier.getName())))
+					.andExpect(jsonPath("$.location", is(javier.getLocation())))
+					.andExpect(jsonPath("$.email", is(javier.getEmail())))
+					.andExpect(jsonPath("$.id", is(javier.getUserId())))
+					.andExpect(jsonPath("$.kind", is(javier.getKind())))
+					.andExpect(jsonPath("$.kindCode", is(javier.getKindCode())));
+		} catch (Exception e) {
+			thrown = true;
+		}
+		assertFalse(thrown);
 	}
 
 	@Test
@@ -92,22 +101,35 @@ public class AgentsDataControllerTest {
 		// POST request with XML content
 		MockHttpServletRequestBuilder request = post("/user").session(session)
 				.contentType(MediaType.APPLICATION_XML_VALUE).content(payload.getBytes());
-		mockMvc.perform(request).andDo(print())
-				// The state of the response must be OK. (200);
-				.andExpect(status().isOk())
-				// We can do jsonpaths in order to check
-				.andExpect(jsonPath("$.name", is(javier.getName())))
-				.andExpect(jsonPath("$.location", is(javier.getLocation())))
-				.andExpect(jsonPath("$.email", is(javier.getEmail())))
-				.andExpect(jsonPath("$.id", is(javier.getUserId()))).andExpect(jsonPath("$.kind", is(javier.getKind())))
-				.andExpect(jsonPath("$.kindCode", is(javier.getKindCode())));
+		boolean thrown = false;
+		try {
+			mockMvc.perform(request).andDo(print())
+					// The state of the response must be OK. (200);
+					.andExpect(status().isOk())
+					// We can do jsonpaths in order to check
+					.andExpect(jsonPath("$.name", is(javier.getName())))
+					.andExpect(jsonPath("$.location", is(javier.getLocation())))
+					.andExpect(jsonPath("$.email", is(javier.getEmail())))
+					.andExpect(jsonPath("$.id", is(javier.getUserId())))
+					.andExpect(jsonPath("$.kind", is(javier.getKind())))
+					.andExpect(jsonPath("$.kindCode", is(javier.getKindCode())));
+		} catch (Exception e) {
+			thrown = true;
+		}
+		assertFalse(thrown);
 	}
 
 	@Test
 	public void userInterfaceInsertInfoCorect() throws Exception {
 		MockHttpServletRequestBuilder request = post("/userForm").session(session).param("login", javier.getEmail())
 				.param("password", plainPassword).param("kind", javier.getKind());
-		mockMvc.perform(request).andExpect(status().isOk());
+		boolean thrown = false;
+		try {
+			mockMvc.perform(request).andExpect(status().isOk());
+		} catch (Exception e) {
+			thrown = true;
+		}
+		assertFalse(thrown);
 	}
 
 	@Test
@@ -115,11 +137,23 @@ public class AgentsDataControllerTest {
 		String payload = String.format(QUERY, "Nothing", "Not really", "Nothing");
 		MockHttpServletRequestBuilder request = post("/user").session(session).contentType(MediaType.APPLICATION_JSON)
 				.content(payload.getBytes());
-		mockMvc.perform(request).andDo(print())// AndDoPrint it is very usefull
-												// to see the http response and
-												// see if something went wrong.
-				.andExpect(status().isNotFound()); // The state of the response
-													// must be OK. (200);
+		boolean thrown = false;
+		try {
+			mockMvc.perform(request).andDo(print())// AndDoPrint it is very
+													// usefull
+													// to see the http response
+													// and
+													// see if something went
+													// wrong.
+					.andExpect(status().isNotFound()); // The state of the
+														// response
+														// must be OK. (200);
+		} catch (UserNotFoundException e) {
+			thrown = true;
+		}
+		assertFalse(thrown);
+		
+		
 	}
 
 	/**
@@ -130,7 +164,13 @@ public class AgentsDataControllerTest {
 		String payload = String.format(QUERY, javier.getName(), "Not maria's password", javier.getKind());
 		MockHttpServletRequestBuilder request = post("/user").session(session).contentType(MediaType.APPLICATION_JSON)
 				.content(payload.getBytes());
-		mockMvc.perform(request).andDo(print()).andExpect(status().isNotFound());
+		boolean thrown = false;
+		try {
+			mockMvc.perform(request).andDo(print()).andExpect(status().isNotFound());
+		} catch (Exception e) {
+			thrown = true;
+		}
+		assertFalse(thrown);
 	}
 
 	@Test
@@ -148,12 +188,19 @@ public class AgentsDataControllerTest {
 		String payload = String.format(QUERY, javier.getEmail(), "HOLA", javier.getKind());
 		// We check password has changed
 		request = post("/user").session(session).contentType(MediaType.APPLICATION_JSON).content(payload.getBytes());
-		mockMvc.perform(request).andDo(print()).andExpect(status().isOk())
-				.andExpect(jsonPath("$.name", is(javier.getName())))
-				.andExpect(jsonPath("$.location", is(javier.getLocation())))
-				.andExpect(jsonPath("$.email", is(javier.getEmail())))
-				.andExpect(jsonPath("$.id", is(javier.getUserId()))).andExpect(jsonPath("$.kind", is(javier.getKind())))
-				.andExpect(jsonPath("$.kindCode", is(javier.getKindCode())));
+		boolean thrown = false;
+		try {
+			mockMvc.perform(request).andDo(print()).andExpect(status().isOk())
+					.andExpect(jsonPath("$.name", is(javier.getName())))
+					.andExpect(jsonPath("$.location", is(javier.getLocation())))
+					.andExpect(jsonPath("$.email", is(javier.getEmail())))
+					.andExpect(jsonPath("$.id", is(javier.getUserId())))
+					.andExpect(jsonPath("$.kind", is(javier.getKind())))
+					.andExpect(jsonPath("$.kindCode", is(javier.getKindCode())));
+		} catch (Exception e) {
+			thrown = true;
+		}
+		assertFalse(thrown);
 	}
 
 }

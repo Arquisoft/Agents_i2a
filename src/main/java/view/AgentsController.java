@@ -14,7 +14,7 @@ import domain.User;
 import domain.UserInfo;
 import domain.UserInfoAdapter;
 import domain.UserLoginData;
-import services.ParticipantsService;
+import services.AgentsService;
 import util.JasyptEncryptor;
 
 
@@ -23,11 +23,11 @@ import util.JasyptEncryptor;
  * Modified by Javier on 15/02/2018 to match the new requirements.
  */
 @Controller
-public class ParticipantsController {
+public class AgentsController {
 
-    private final ParticipantsService part;
+    private final AgentsService part;
 
-    ParticipantsController(ParticipantsService part){
+    AgentsController(AgentsService part){
         this.part = part;
     }
 

@@ -11,13 +11,13 @@ import util.JasyptEncryptor;
  * Created by Nicolás on 14/02/2017.
  */
 @Service
-public class PartipantsServiceImpl implements ParticipantsService {
+public class AgentsServiceImpl implements AgentsService {
 
     private final Database dat;
     private final JasyptEncryptor encryptor = new JasyptEncryptor();
 
     @Autowired
-    PartipantsServiceImpl(Database dat){
+    AgentsServiceImpl(Database dat){
         this.dat = dat;
     }
 

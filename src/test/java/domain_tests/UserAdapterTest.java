@@ -1,14 +1,17 @@
 package domain_tests;
 
-import domain.User;
-import domain.UserInfo;
-import domain.UserInfoAdapter;
-import org.junit.Before;
-import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import java.util.Calendar;
 
-import static org.junit.Assert.assertEquals;
+import org.junit.Before;
+import org.junit.Test;
+
+import domain.User;
+import domain.UserInfo;
+import domain.UserInfoAdapter;
 
 /**
  * Created by Nicolás on 18/02/2017.
@@ -25,6 +28,36 @@ public class UserAdapterTest {
         cal.set(Calendar.YEAR, 1996);
         user1 = new User("User1", "Oviedo", "User1@hola.com", "user1Password", "10", "Person", 1);
         user2 = new User("User2", "Gijon", "User2@hola.com", "user2Password", "11", "Person", 1);
+    }
+    
+    @Test
+    public void testUserInfo(){
+    	UserInfoAdapter adapter = new UserInfoAdapter(user1);
+        UserInfo info = adapter.userToInfo();
+        UserInfoAdapter adapter1 = new UserInfoAdapter(user2);
+        UserInfo info1 = adapter1.userToInfo();
+        info.setEmail("a@b.com");
+        assertEquals(info.getEmail(),"a@b.com");
+        info.setKind("Sensor");
+        assertEquals(info.getKind(),"Sensor");
+        info.setKindCode(2);
+        assertEquals(info.getKindCode(),2);
+        info.setLocation("Aviles");
+        assertEquals(info.getLocation(),"Aviles");
+        info.setName("Nuevo");
+        assertEquals(info.getName(),"Nuevo");
+        String output = "{name=\'Nuevo\',location=\'Aviles\',email=\'a@b.com\',"
+        		+ "id=\'10\',kind=\'Sensor\',kindCode=\'2\'}";
+        assertEquals(output,info.toString());
+        
+        info1.setEmail("a@b.com");
+        info1.setKind("Sensor");
+        info1.setKindCode(2);
+        info1.setLocation("Aviles");
+        info1.setName("Nuevo");
+        assertFalse(info1.equals(info));
+        info1.setId("10");
+        assertTrue(info1.equals(info));
     }
 
     @Test

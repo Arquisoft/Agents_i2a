@@ -7,7 +7,7 @@ import domain.User;
  * Façade for the business layer implementation
  */
 
-public interface ParticipantsService {
+public interface AgentsService {
 
     /**
      * Given the data of a user, checks if there's such an user, and if the password matches

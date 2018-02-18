@@ -50,7 +50,7 @@ public class User {
 		sb.append("name='").append(name).append('\'');
 		sb.append(",location='").append(location).append('\'');
 		sb.append(",email='").append(email).append('\'');
-		sb.append(",id='").append(id).append('\'');
+		sb.append(",id='").append(userId).append('\'');
 		sb.append(",kind='").append(getKind()).append('\'');
 		sb.append(",kindCode='").append(kindCode).append("'");
 		sb.append('}');
