@@ -18,9 +18,12 @@ public class UserTest {
 
 	@Before
 	public void setUp() {
-		marcos = new User("Marcos", "Oviedo", "User1@hola.com", "user1Password", "10", "Person", 1);
-		alba = new User("Alba", "Gijon", "User2@hola.com", "user2Password", "11", "Person", 1);
-		javier = new User("Javier", "Aviles", "User3@hola.com", "user3Password", "12", "Person", 1);
+		marcos = new User("Marcos", "Oviedo", "User1@hola.com", "user1Password",
+				"10", "Person", 1);
+		alba = new User("Alba", "Gijon", "User2@hola.com", "user2Password",
+				"11", "Person", 1);
+		javier = new User("Javier", "Aviles", "User3@hola.com", "user3Password",
+				"12", "Person", 1);
 	}
 
 	@Test
@@ -89,7 +92,8 @@ public class UserTest {
 
 		marcos.setPassword("1234");
 
-		Assert.assertTrue(encryptor.checkPassword("1234", marcos.getPassword()));
+		Assert.assertTrue(
+				encryptor.checkPassword("1234", marcos.getPassword()));
 
 		alba.setPassword("abcd");
 		Assert.assertTrue(encryptor.checkPassword("abcd", alba.getPassword()));

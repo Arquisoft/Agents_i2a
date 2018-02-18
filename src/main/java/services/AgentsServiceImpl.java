@@ -22,8 +22,8 @@ public class AgentsServiceImpl implements AgentsService {
     }
 
     @Override
-    public User getAgent(String email, String password, String kind) {
-        User user = dat.getAgent(email);
+    public User getAgent(String name, String password, String kind) {
+        User user = dat.getAgent(name);
         if(user != null && encryptor.checkPassword(password, user.getPassword()))
             return user;
         else return null;

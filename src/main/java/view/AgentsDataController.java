@@ -1,7 +1,5 @@
 package view;
 
-
-
 import domain.UserInfo;
 import domain.UserLoginData;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,20 +11,22 @@ import services.AgentsService;
 @RestController
 public class AgentsDataController {
 
-    private final AgentsService part;
+	private final AgentsService part;
 
-    @Autowired
-    AgentsDataController(AgentsService part){
-        this.part = part;
-    }
+	@Autowired
+	AgentsDataController(AgentsService part) {
+		this.part = part;
+	}
 
-    @RequestMapping(value = "/user", method = RequestMethod.POST, consumes = {
-            MediaType.APPLICATION_JSON_VALUE,
-            MediaType.APPLICATION_XML_VALUE }, produces = MediaType.APPLICATION_JSON_VALUE)
-    @ResponseBody
-    public ResponseEntity<UserInfo> userOkJSON(@RequestBody UserLoginData info){
-        UserResponseAction act = new UserResponseAction(part);
-        return act.execute(info);
-    }
+	@RequestMapping(value = "/user", method = RequestMethod.POST, consumes = {
+			MediaType.APPLICATION_JSON_VALUE,
+			MediaType.APPLICATION_XML_VALUE },
+			produces = MediaType.APPLICATION_JSON_VALUE)
+	@ResponseBody
+	public ResponseEntity<UserInfo> userOkJSON(
+			@RequestBody UserLoginData info) {
+		UserResponseAction act = new UserResponseAction(part);
+		return act.execute(info);
+	}
 
 }
