@@ -35,7 +35,7 @@ Optional tools:
 	Now the application is running if all it's correct.
 	
 ### **3. Run the database**
-	Open command prompt int the bin folder where you have MongoDB, the path will be similar to this
+	Open command prompt in the bin folder where you have MongoDB, the path will be similar to this
 		> ~\MongoDB\Server\3.6\bin
 	Execute:
 		> mongod.exe --dbpath <your database path>
