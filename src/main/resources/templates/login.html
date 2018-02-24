@@ -30,10 +30,8 @@
           <h2>Login</h2>
                 <input id="login" name="login" type="text" th:field="*{login}" class="form-control" placeholder="Name" />
                 <input id="password" name="password" type="password" th:field="*{password}" class="form-control" placeholder="Password" />
-                <select id="kind" name="kind" th:field="*{kind}" class="form-control">
-        			<option value="1">Person</option>
-        			<option value="2">Entity</option>
-        			<option value="3">Sensor</option>
+                <select id="kind" name="kind" class="form-control" >
+        				<option th:each="prod : ${userinfo.kindCodes}" th:text="${prod}"></option>
       			</select>
                 <button id="Enter" name="Enter" type="submit" value="enter" class="btn btn-block btn-primary btn-lg">Enter </button>
         </form>

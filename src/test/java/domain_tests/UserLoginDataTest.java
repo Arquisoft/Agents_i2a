@@ -57,5 +57,12 @@ public class UserLoginDataTest {
 		test2.setKind("Sensor");
 		assertEquals("Sensor", test2.getKind());
 	}
+	
+	@Test
+	public void getKindCodes() throws Exception{
+		assertEquals("Person", test2.getKindCodes().get(0));
+		assertEquals("Entity", test2.getKindCodes().get(1));
+		assertEquals("Sensor", test2.getKindCodes().get(2));
+	}
 
 }

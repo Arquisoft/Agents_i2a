@@ -33,7 +33,8 @@ public class AgentsController {
 	// The first page shown will be login.html.
 	@GetMapping(value = "/")
 	public String getParticipantInfo(Model model) {
-		model.addAttribute("userinfo", new UserLoginData());
+		UserLoginData data = new UserLoginData();
+		model.addAttribute("userinfo", data);
 		return "login";
 	}
 
