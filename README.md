@@ -63,20 +63,18 @@ user interface manually you'll have to introduce this document:
 
 ```json
 {
-    "_id" : ObjectId("58a8670df086e81dc034d7fc"),
-    "firstName" : "Prueba01",
-    "lastName" : "Apellido01",
+    "id" : ObjectId("58a8670df086e81dc034d7fc"),
+    "name" : "Prueba01",
+    "location" : "Aviles",
     "email" : "prueba01@prueba.es",
-    "address" : "c/Prueba n0 1a",
-    "nationality" : "España",
-    "userId" : "00000001J",
-    "dateOfBirth" : ISODate("1981-12-27T23:00:00.000Z"),
-    "password" : "khZZwjdhWwVbMdmOvz9eqBfKR1N6A+CdFBDM9c1dQduUnGewQyPRlBxB4Q6wT7Cq"
+    "password" : "khZZwjdhWwVbMdmOvz9eqBfKR1N6A+CdFBDM9c1dQduUnGewQyPRlBxB4Q6wT7Cq",
+    "kind" : "Person",
+    "kindCode" : "1"
 }
 ```
 
 And as data use:
- - login: prueba01@prueba.es
+ - login: Prueba01
  - password: 4[[j[frVCUMJ>hU
 
  If you have the data and the database running and the application still reports a 404 Not Found when it shouldn't
@@ -106,6 +104,7 @@ data in this request can come as:
 <data>
  <login>yourLogin</login>
  <password>yourPassword</password>
+ <kind>Person</kind>
 </data>
 ```
 
