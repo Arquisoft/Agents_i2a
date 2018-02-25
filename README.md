@@ -104,7 +104,7 @@ data in this request can come as:
 <data>
  <login>yourLogin</login>
  <password>yourPassword</password>
- <kind>Person</kind>
+ <kind>yourKind</kind>
 </data>
 ```
 
