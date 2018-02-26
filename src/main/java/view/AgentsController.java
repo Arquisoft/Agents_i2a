@@ -80,5 +80,4 @@ public class AgentsController {
 		}
 		return "changePassword";
 	}
-
 }

@@ -36,7 +36,7 @@
                      </strong>
                  </td>
                  <td class="text-primary">
-                    <span th:text="${fName}"/>
+                    <span th:text="${name}"/>
                  </td>
              </tr>
 
@@ -49,6 +49,28 @@
                  </td>
                  <td class="text-primary">
                      <span th:text="${email}"/>
+                 </td>
+             </tr>
+              <tr>
+                 <td>
+                     <strong>
+                         <span class="glyphicon glyphicon-home text-primary"></span>
+                         Location
+                     </strong>
+                 </td>
+                 <td class="text-primary">
+                    <span th:text="${location}"/>
+                 </td>
+             </tr>
+              <tr>
+                 <td>
+                     <strong>
+                         <span class="glyphicon glyphicon-globe text-primary"></span>
+                         Kind
+                     </strong>
+                 </td>
+                 <td class="text-primary">
+                    <span th:text="${kind}"/>
                  </td>
              </tr>
          </tbody>
