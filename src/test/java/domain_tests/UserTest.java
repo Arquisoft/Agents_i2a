@@ -4,7 +4,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import domain.User;
+import domain.Agent;
 import util.JasyptEncryptor;
 
 /**
@@ -12,17 +12,17 @@ import util.JasyptEncryptor;
  */
 public class UserTest {
 
-	private User marcos;
-	private User alba;
-	private User javier;
+	private Agent marcos;
+	private Agent alba;
+	private Agent javier;
 
 	@Before
 	public void setUp() {
-		marcos = new User("Marcos", "Oviedo", "User1@hola.com", "user1Password",
+		marcos = new Agent("Marcos", "Oviedo", "User1@hola.com", "user1Password",
 				"10", "Person", 1);
-		alba = new User("Alba", "Gijon", "User2@hola.com", "user2Password",
+		alba = new Agent("Alba", "Gijon", "User2@hola.com", "user2Password",
 				"11", "Person", 1);
-		javier = new User("Javier", "Aviles", "User3@hola.com", "user3Password",
+		javier = new Agent("Javier", "Aviles", "User3@hola.com", "user3Password",
 				"12", "Person", 1);
 	}
 

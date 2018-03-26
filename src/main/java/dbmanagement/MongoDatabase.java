@@ -1,6 +1,6 @@
 package dbmanagement;
 
-import domain.User;
+import domain.Agent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,12 +11,12 @@ public class MongoDatabase implements Database{
 	private UsersRepository users;
 
     @Override
-	public void updateInfo(User user) {
+	public void updateInfo(Agent user) {
 		users.save(user);
 	}
 
 	@Override
-	public User getAgent(String name) {
+	public Agent getAgent(String name) {
 		return users.findByName(name);
 	}
 

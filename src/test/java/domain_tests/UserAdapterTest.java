@@ -7,32 +7,32 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.Test;
 
-import domain.User;
-import domain.UserInfo;
-import domain.UserInfoAdapter;
+import domain.Agent;
+import domain.AgentInfo;
+import domain.AgentInfoAdapter;
 
 /**
  * Created by Nicolás on 18/02/2017. Modified by Marcos on 17/02/2018
  */
 public class UserAdapterTest {
 
-	private User user1;
-	private User user2;
+	private Agent user1;
+	private Agent user2;
 
 	@Before
 	public void setUp() {
-		user1 = new User("User1", "Oviedo", "User1@hola.com", "user1Password",
+		user1 = new Agent("User1", "Oviedo", "User1@hola.com", "user1Password",
 				"10", "Person", 1);
-		user2 = new User("User2", "Gijon", "User2@hola.com", "user2Password",
+		user2 = new Agent("User2", "Gijon", "User2@hola.com", "user2Password",
 				"11", "Person", 1);
 	}
 
 	@Test
 	public void testUserInfo() {
-		UserInfoAdapter adapter = new UserInfoAdapter(user1);
-		UserInfo info = adapter.userToInfo();
-		UserInfoAdapter adapter1 = new UserInfoAdapter(user2);
-		UserInfo info1 = adapter1.userToInfo();
+		AgentInfoAdapter adapter = new AgentInfoAdapter(user1);
+		AgentInfo info = adapter.userToInfo();
+		AgentInfoAdapter adapter1 = new AgentInfoAdapter(user2);
+		AgentInfo info1 = adapter1.userToInfo();
 		info.setEmail("a@b.com");
 		assertEquals(info.getEmail(), "a@b.com");
 		info.setKind("Sensor");
@@ -59,8 +59,8 @@ public class UserAdapterTest {
 
 	@Test
 	public void testAdapter() {
-		UserInfoAdapter adapter = new UserInfoAdapter(user1);
-		UserInfo info = adapter.userToInfo();
+		AgentInfoAdapter adapter = new AgentInfoAdapter(user1);
+		AgentInfo info = adapter.userToInfo();
 		assertEquals(info.getName(), user1.getName());
 		assertEquals(info.getEmail(), user1.getEmail());
 		assertEquals(info.getKind(), user1.getKind());
@@ -68,8 +68,8 @@ public class UserAdapterTest {
 		assertEquals(info.getLocation(), user1.getLocation());
 		assertEquals(info.getId(), user1.getUserId());
 
-		UserInfoAdapter adapter1 = new UserInfoAdapter(user2);
-		UserInfo info1 = adapter1.userToInfo();
+		AgentInfoAdapter adapter1 = new AgentInfoAdapter(user2);
+		AgentInfo info1 = adapter1.userToInfo();
 		assertEquals(info1.getName(), user2.getName());
 		assertEquals(info1.getEmail(), user2.getEmail());
 		assertEquals(info1.getKind(), user2.getKind());

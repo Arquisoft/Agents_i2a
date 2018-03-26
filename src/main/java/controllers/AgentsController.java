@@ -1,4 +1,4 @@
-package view;
+package controllers;
 
 import javax.servlet.http.HttpSession;
 
@@ -10,10 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import domain.User;
-import domain.UserInfo;
-import domain.UserInfoAdapter;
-import domain.UserLoginData;
+import domain.Agent;
+import domain.AgentLoginData;
 import services.AgentsService;
 import util.JasyptEncryptor;
 
@@ -32,8 +30,8 @@ public class AgentsController {
 
 	// The first page shown will be login.html.
 	@GetMapping(value = "/")
-	public String getParticipantInfo(Model model) {
-		UserLoginData data = new UserLoginData();
+	public String getParticipantInfo(Model model, HttpSession session) {
+		AgentLoginData data = new AgentLoginData();
 		model.addAttribute("userinfo", data);
 		return "login";
 	}
@@ -41,28 +39,22 @@ public class AgentsController {
 	// This method process an POST html request once fulfilled the login.html
 	// form (clicking in the "Enter" button).
 	@RequestMapping(value = "/userForm", method = RequestMethod.POST)
-	public String showInfo(Model model, @ModelAttribute UserLoginData data,
+	public String showInfo(Model model, @ModelAttribute AgentLoginData data,
 			HttpSession session) {
-		User user = part.getAgent(data.getLogin(), data.getPassword(),
+		Agent user = part.getAgent(data.getLogin(), data.getPassword(),
 				data.getKind());
-		if (user == null) {
-			throw new UserNotFoundException();
+		if (user == null) {	
+			model.addAttribute("userinfo", data);
+			model.addAttribute("error",true);
+			return "login";
 		} else {
-			UserInfoAdapter adapter = new UserInfoAdapter(user);
-			UserInfo info = adapter.userToInfo();
-			model.addAttribute("name", info.getName());
-			model.addAttribute("location", info.getLocation());
-			model.addAttribute("email", info.getEmail());
-			model.addAttribute("kind", info.getKind());
-			model.addAttribute("kindCode", info.getKindCode());
-			model.addAttribute("user", user);
 			session.setAttribute("user", user);
 			return "data";
 		}
 	}
 
 	@RequestMapping(value = "/passMenu", method = RequestMethod.GET)
-	public String showMenu(Model model) {
+	public String showMenu(Model model, HttpSession session) {
 		// Just in case there must be more processing.
 		return "changePassword";
 	}
@@ -72,7 +64,7 @@ public class AgentsController {
 			@RequestParam String newPassword,
 			@RequestParam String newPasswordConfirm, HttpSession session) {
 		JasyptEncryptor encryptor = new JasyptEncryptor();
-		User loggedUser = (User) session.getAttribute("user");
+		Agent loggedUser = (Agent) session.getAttribute("user");
 		if (encryptor.checkPassword(password, loggedUser.getPassword())
 				&& newPassword.equals(newPasswordConfirm)) {
 			part.updateInfo(loggedUser, newPassword);

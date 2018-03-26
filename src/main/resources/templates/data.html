@@ -36,7 +36,7 @@
                      </strong>
                  </td>
                  <td class="text-primary">
-                    <span th:text="${name}"/>
+                    <span th:text="${session.user.name}"/>
                  </td>
              </tr>
 
@@ -48,7 +48,7 @@
                      </strong>
                  </td>
                  <td class="text-primary">
-                     <span th:text="${email}"/>
+                     <span th:text="${session.user.email}"/>
                  </td>
              </tr>
               <tr>
@@ -59,7 +59,7 @@
                      </strong>
                  </td>
                  <td class="text-primary">
-                    <span th:text="${location}"/>
+                    <span th:text="${session.user.location}"/>
                  </td>
              </tr>
               <tr>
@@ -70,7 +70,7 @@
                      </strong>
                  </td>
                  <td class="text-primary">
-                    <span th:text="${kind}"/>
+                    <span th:text="${session.user.kind}"/>
                  </td>
              </tr>
          </tbody>

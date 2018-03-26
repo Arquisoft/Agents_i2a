@@ -27,9 +27,8 @@ import org.springframework.web.context.WebApplicationContext;
  * Modified by Marcos on 17/02/2018
  */
 import dbmanagement.UsersRepository;
-import domain.User;
+import domain.Agent;
 import main.Application;
-import view.UserNotFoundException;
 
 @SpringBootTest(classes = { Application.class })
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -50,9 +49,9 @@ public class AgentsDataControllerTest {
 
 	private MockHttpSession session;
 
-	private User javier;
-	private User marcos;
-	private User alba;
+	private Agent javier;
+	private Agent marcos;
+	private Agent alba;
 
 	private String plainPassword;
 
@@ -65,17 +64,17 @@ public class AgentsDataControllerTest {
 
 		// Setting up users
 		plainPassword = "pass14753";
-		javier = new User("Javier", "Aviles", "User3@hola.com", plainPassword,
+		javier = new Agent("Javier", "Aviles", "User3@hola.com", plainPassword,
 				"12", "Person", 1);
 		repo.insert(javier);
 
 		plainPassword = "pass14753";
-		marcos = new User("Marcos", "Oviedo", "User1@hola.com", plainPassword,
+		marcos = new Agent("Marcos", "Oviedo", "User1@hola.com", plainPassword,
 				"10", "Person", 1);
 		repo.insert(marcos);
 
 		plainPassword = "pass14753";
-		alba = new User("Alba", "Gijon", "User2@hola.com", plainPassword, "11",
+		alba = new Agent("Alba", "Gijon", "User2@hola.com", plainPassword, "11",
 				"Person", 1);
 		repo.insert(alba);
 	}
@@ -246,7 +245,7 @@ public class AgentsDataControllerTest {
 					.andExpect(status().isNotFound()); // The state of the
 														// response
 														// must be OK. (200);
-		} catch (UserNotFoundException e) {
+		} catch (Exception e) {
 			thrown = true;
 		}
 		assertFalse(thrown);
