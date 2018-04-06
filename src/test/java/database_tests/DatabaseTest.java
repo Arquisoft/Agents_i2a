@@ -67,6 +67,7 @@ public class DatabaseTest {
 		Agent user = dat.getAgent("Luis");
 		user.setLocation("USA");
 		Assert.assertEquals(user.getLocation(), "USA");
+		
 	}
 
 	@Test
@@ -76,6 +77,7 @@ public class DatabaseTest {
 		Agent user = dat.getAgent("Luis");
 		user.setPassword("confidencial");
 		JasyptEncryptor encryptor = new JasyptEncryptor();
+		
 		dat.updateInfo(user);
 		Agent userAfter = dat.getAgent("Luis");
 		Assert.assertTrue(encryptor.checkPassword("confidencial",
@@ -83,7 +85,6 @@ public class DatabaseTest {
 											// introduce the password.
 		Assert.assertEquals(user, userAfter); // They should be the same user by
 												// the equals.
-
 	}
 
 	@Test

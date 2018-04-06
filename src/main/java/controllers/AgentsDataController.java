@@ -18,13 +18,14 @@ public class AgentsDataController {
 		this.part = part;
 	}
 
-	@RequestMapping(value = "/user", method = RequestMethod.POST, consumes = {
+	@RequestMapping(value = "/checkAgent", method = RequestMethod.POST, consumes = {
 			MediaType.APPLICATION_JSON_VALUE,
 			MediaType.APPLICATION_XML_VALUE },
 			produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
 	public ResponseEntity<AgentInfo> userOkJSON(
 			@RequestBody AgentLoginData info) {
+	System.out.println(info.getPassword() + info.getLogin() + info.getKind());
 		UserResponseAction act = new UserResponseAction(part);
 		return act.checkAgent(info);
 	}
