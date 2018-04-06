@@ -26,7 +26,7 @@ public class AgentsDataController {
 	public ResponseEntity<AgentInfo> userOkJSON(
 			@RequestBody AgentLoginData info) {
 		UserResponseAction act = new UserResponseAction(part);
-		return act.execute(info);
+		return act.checkAgent(info);
 	}
 
 }
