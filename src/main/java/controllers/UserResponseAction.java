@@ -29,7 +29,6 @@ public class UserResponseAction {
 		if (user == null) {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		} else {
-			System.out.println(data.userToInfo().toString());
 			return new ResponseEntity<>(data.userToInfo(), HttpStatus.OK);
 		}
 	}

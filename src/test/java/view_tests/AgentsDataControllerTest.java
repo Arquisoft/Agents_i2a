@@ -91,7 +91,7 @@ public class AgentsDataControllerTest {
 		String payload = String.format(QUERY, javier.getName(), plainPassword,
 				javier.getKind());
 		// We send a POST request to that URI (from http:localhost...)
-		MockHttpServletRequestBuilder request = post("/user").session(session)
+		MockHttpServletRequestBuilder request = post("/checkAgent").session(session)
 				.contentType(MediaType.APPLICATION_JSON)
 				.content(payload.getBytes());
 		boolean thrown = false;
@@ -115,7 +115,7 @@ public class AgentsDataControllerTest {
 		String payload1 = String.format(QUERY, alba.getName(), plainPassword,
 				alba.getKind());
 		// We send a POST request to that URI (from http:localhost...)
-		MockHttpServletRequestBuilder request1 = post("/user").session(session)
+		MockHttpServletRequestBuilder request1 = post("/checkAgent").session(session)
 				.contentType(MediaType.APPLICATION_JSON)
 				.content(payload1.getBytes());
 		boolean thrown1 = false;
@@ -138,7 +138,7 @@ public class AgentsDataControllerTest {
 		String payload2 = String.format(QUERY, marcos.getName(), plainPassword,
 				marcos.getKind());
 		// We send a POST request to that URI (from http:localhost...)
-		MockHttpServletRequestBuilder request2 = post("/user").session(session)
+		MockHttpServletRequestBuilder request2 = post("/checkAgent").session(session)
 				.contentType(MediaType.APPLICATION_JSON)
 				.content(payload2.getBytes());
 		boolean thrown2 = false;
@@ -167,7 +167,7 @@ public class AgentsDataControllerTest {
 						+ "<kind>%s</kind></data>",
 				javier.getName(), plainPassword, javier.getKind());
 		// POST request with XML content
-		MockHttpServletRequestBuilder request = post("/user").session(session)
+		MockHttpServletRequestBuilder request = post("/checkAgent").session(session)
 				.contentType(MediaType.APPLICATION_XML_VALUE)
 				.content(payload.getBytes());
 		boolean thrown = false;
@@ -290,7 +290,7 @@ public class AgentsDataControllerTest {
 		String payload = String.format(QUERY, javier.getName(), "HOLA",
 				javier.getKind());
 		// We check password has changed
-		request = post("/user").session(session)
+		request = post("/checkAgent").session(session)
 				.contentType(MediaType.APPLICATION_JSON)
 				.content(payload.getBytes());
 		boolean thrown = false;
@@ -315,7 +315,7 @@ public class AgentsDataControllerTest {
 		String payload1 = String.format(QUERY, javier.getName(), plainPassword,
 				javier.getKind());
 		// We check password has changed
-		request = post("/user").session(session)
+		request = post("/checkAgent").session(session)
 				.contentType(MediaType.APPLICATION_JSON)
 				.content(payload1.getBytes());
 		boolean thrown1 = false;

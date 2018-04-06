@@ -60,9 +60,9 @@ public class UserLoginDataTest {
 	
 	@Test
 	public void getKindCodes() throws Exception{
-		assertEquals("Person", test2.getKindCodes().get(0));
-		assertEquals("Entity", test2.getKindCodes().get(1));
-		assertEquals("Sensor", test2.getKindCodes().get(2));
+		assertEquals("PERSON", test2.getKindCodes().get(0));
+		assertEquals("ENTITY", test2.getKindCodes().get(1));
+		assertEquals("SENSOR", test2.getKindCodes().get(2));
 	}
 
 }
