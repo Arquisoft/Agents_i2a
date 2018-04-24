@@ -21,6 +21,5 @@ EXPOSE 8080
 
 # copy Java application WAR file: package app bytecode and libs into single WAR
 COPY --from=builder /app/target/*.jar /app.jar
-
-# default command to run Java application
-CMD ["/usr/bin/java", "-jar", "/app.jar"]
+EXPOSE 8080
+CMD ["java", "-jar", "/app.jar", "--spring.data.mongodb.host=mongo"]
