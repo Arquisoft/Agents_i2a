@@ -3,6 +3,7 @@
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/c0c920d4630d42c3ac4e70dd6844715a)](https://www.codacy.com/app/jelabra/Agents_i2a?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Arquisoft/Agents_i2a&amp;utm_campaign=Badge_Grade)
 [![Build Status](https://travis-ci.org/Arquisoft/Agents_i2a.svg?branch=master)](https://travis-ci.org/Arquisoft/Agents_i2a)
 [![codecov](https://codecov.io/gh/Arquisoft/Agents_i2a/branch/master/graph/badge.svg)](https://codecov.io/gh/Arquisoft/Agents_i2a)
+[![Codefresh build status]( https://g.codefresh.io/api/badges/build?repoOwner=Arquisoft&repoName=Agents_i2a&branch=master&pipelineName=Agents_i2a&accountName=javicodema&type=cf-1)]( https://g.codefresh.io/repositories/Arquisoft/Agents_i2a/builds?filter=trigger:build;branch:master;service:5ad475044c2ffe00018b55a1~Agents_i2a)
 
 Agents module
 
