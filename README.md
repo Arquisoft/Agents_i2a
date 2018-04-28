@@ -69,7 +69,7 @@ user interface manually you'll have to introduce this document:
     "location" : "Aviles",
     "email" : "prueba01@prueba.es",
     "password" : "khZZwjdhWwVbMdmOvz9eqBfKR1N6A+CdFBDM9c1dQduUnGewQyPRlBxB4Q6wT7Cq",
-    "kind" : "Person",
+    "kind" : "PERSON",
     "kindCode" : "1"
 }
 ```
