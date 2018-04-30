@@ -120,6 +120,13 @@ public class UserTest {
 		String output = "{name=\'Marcos\',location=\'Oviedo\',email=\'User1@hola.com\',id=\'10\',kind=\'Person\'"
 				+ ",kindCode=\'1\'}";
 		Assert.assertEquals(output, marcos.toString());
+		Assert.assertEquals(alba.getUserId().hashCode(), alba.hashCode());
+		Agent a = new Agent();
+		a.setUserId(alba.getUserId());
+		Assert.assertTrue(alba.equals(a));
+		Assert.assertTrue(alba.equals(alba));
+		Assert.assertFalse(alba.equals(null));
+		Assert.assertFalse(alba.equals(""));
 	}
 
 }

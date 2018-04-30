@@ -275,6 +275,11 @@ public class AgentsDataControllerTest {
 	@Test
 	public void testChangePassword() throws Exception {
 		MockHttpSession session = new MockHttpSession();
+		MockHttpServletRequestBuilder request2 = post("/userForm")
+				.session(session).param("login", javier.getName())
+				.param("password", "aaaaaaaaaaaaaa")
+				.param("kind", javier.getKind());
+		mockMvc.perform(request2).andExpect(status().isOk());
 		// We check we have the proper credentials
 		MockHttpServletRequestBuilder request = post("/userForm")
 				.session(session).param("login", javier.getName())

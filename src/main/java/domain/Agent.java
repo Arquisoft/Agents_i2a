@@ -25,7 +25,7 @@ public class Agent {
 	private String kind;
 	private int kindCode;
 
-	Agent() {
+	public Agent() {
 
 	}
 

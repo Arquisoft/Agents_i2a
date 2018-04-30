@@ -54,7 +54,13 @@ public class UserAdapterTest {
 		info1.setName("Nuevo");
 		assertFalse(info1.equals(info));
 		info1.setId("10");
+		assertTrue(info1.equals(info1));
 		assertTrue(info1.equals(info));
+		assertFalse(info1.equals(null));
+		assertFalse(info1.equals(""));
+		assertEquals(info1.hashCode(),info1.hashCode());
+		AgentInfo foo = new AgentInfo();
+		assertFalse(info1.equals(foo));
 	}
 
 	@Test
