@@ -121,8 +121,6 @@
 					<excludes>
 					<exclude>**/controllers/**</exclude>
 					<exclude>**/main/**</exclude>
-					<exclude>**/services/**</exclude>
-					<exclude>**/AgentLoginData.**</exclude>
 					</excludes>
 				</configuration>
 				<executions>
