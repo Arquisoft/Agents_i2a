@@ -117,6 +117,14 @@
 				<groupId>org.jacoco</groupId>
 				<artifactId>jacoco-maven-plugin</artifactId>
 				<version>0.7.7.201606060606</version>
+				<configuration>
+					<excludes>
+					<exclude>**/controllers/**</exclude>
+					<exclude>**/main/**</exclude>
+					<exclude>**/services/**</exclude>
+					<exclude>**/AgentLoginData.**</exclude>
+					</excludes>
+				</configuration>
 				<executions>
 					<execution>
 						<goals>
