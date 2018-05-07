@@ -23,7 +23,7 @@ public class UserResponseAction {
 	}
 
 	public ResponseEntity<AgentInfo> checkAgent(AgentLoginData info) {
-		Agent user = part.getAgent(info.getLogin(), info.getPassword(),
+		Agent user = part.getAgentInfo(info.getLogin(), info.getPassword(),
 				info.getKind());
 		AgentInfoAdapter data = new AgentInfoAdapter(user);
 		if (user == null) {

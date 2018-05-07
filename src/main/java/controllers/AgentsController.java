@@ -41,7 +41,7 @@ public class AgentsController {
 	@RequestMapping(value = "/userForm", method = RequestMethod.POST)
 	public String showInfo(Model model, @ModelAttribute AgentLoginData data,
 			HttpSession session) {
-		Agent user = part.getAgent(data.getLogin(), data.getPassword(),
+		Agent user = part.getAgentInfo(data.getLogin(), data.getPassword(),
 				data.getKind());
 		if (user == null) {	
 			model.addAttribute("userinfo", data);
