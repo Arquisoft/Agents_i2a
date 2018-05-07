@@ -20,7 +20,7 @@ public interface AgentsService {
 	 * @return Either the proper user, if the user exists and the password
 	 *         matches. Null otherwise
 	 */
-	Agent getAgent(String name, String password, String kind);
+	Agent getAgentInfo(String name, String password, String kind);
 
 	/**
 	 * Updates the password for the given user
