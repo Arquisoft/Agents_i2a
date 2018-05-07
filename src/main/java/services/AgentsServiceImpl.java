@@ -32,7 +32,7 @@ public class AgentsServiceImpl implements AgentsService {
     }
 
     @Override
-    public void updateInfo(Agent user, String newPassword) {
+    public void changeInfo(Agent user, String newPassword) {
     	//It is not necessary, done by the domain class itself.
     	user.setPassword(newPassword);
     	dat.updateInfo(user);

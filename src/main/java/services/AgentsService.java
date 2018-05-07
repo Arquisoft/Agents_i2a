@@ -30,6 +30,6 @@ public interface AgentsService {
 	 * @param newPassword
 	 *            The new password
 	 */
-	void updateInfo(Agent user, String newPassword);
+	void changeInfo(Agent user, String newPassword);
 
 }

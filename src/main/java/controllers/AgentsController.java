@@ -67,7 +67,7 @@ public class AgentsController {
 		Agent loggedUser = (Agent) session.getAttribute("user");
 		if (encryptor.checkPassword(password, loggedUser.getPassword())
 				&& newPassword.equals(newPasswordConfirm)) {
-			part.updateInfo(loggedUser, newPassword);
+			part.changeInfo(loggedUser, newPassword);
 			return "data";
 		}
 		return "changePassword";
