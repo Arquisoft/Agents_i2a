@@ -4,13 +4,14 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.equalTo;
 
+import org.junit.Ignore;
 import org.springframework.http.HttpStatus;
 
 import cucumber.AbstractSteps;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-public class AccessLoginPageSteps extends AbstractSteps {
+@Ignore public class AccessLoginPageSteps extends AbstractSteps {
 	@When("^the client calls /$")
 	public void the_client_calls() throws Throwable {
 		executeGet("http://localhost:8080");

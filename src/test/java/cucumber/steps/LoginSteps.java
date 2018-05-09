@@ -8,6 +8,7 @@ import java.util.List;
 
 import org.hamcrest.MatcherAssert;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.mock.web.MockHttpServletResponse;
@@ -31,7 +32,7 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-public class LoginSteps extends AbstractSteps{
+@Ignore public class LoginSteps extends AbstractSteps{
 
 	@Mock
 	private AgentsController aController;
