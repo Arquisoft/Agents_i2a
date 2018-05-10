@@ -5,7 +5,7 @@
 [![codecov](https://codecov.io/gh/Arquisoft/Agents_i2a/branch/master/graph/badge.svg)](https://codecov.io/gh/Arquisoft/Agents_i2a)
 [![Codefresh build status]( https://g.codefresh.io/api/badges/build?repoOwner=Arquisoft&repoName=Agents_i2a&branch=master&pipelineName=Agents_i2a&accountName=javicodema&type=cf-1)]( https://g.codefresh.io/repositories/Arquisoft/Agents_i2a/builds?filter=trigger:build;branch:master;service:5ad475044c2ffe00018b55a1~Agents_i2a)
 
-Agents module
+Agents module (part of final [Inci_i2a](https://github.com/Arquisoft/Inci_i2a) module). Below we give you the instructions to run this module in your local host. Otherwise, if you want to run it with the complete application and deploy it online, you should follow the instructions given in the Inci_i2a GitHub page.
 
 # 17-18 Authors
 - [Marcos Chacón Cadenas](https://github.com/chacon11)

@@ -1,6 +1,7 @@
 package cucumber.steps;
 
 import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.contains;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 
@@ -38,6 +39,9 @@ public class LoginSteps extends AbstractSteps{
 	private AgentsController aController;
 	private MockMvc mockMvc;
 	private MockHttpServletResponse result;
+	private String name;
+	private String password;
+	private String kind;
 
 	@Before
 	public void init() {
@@ -77,6 +81,9 @@ public class LoginSteps extends AbstractSteps{
 
 	@When("I login with name \"([^\"]*)\" and password \"([^\"]*)\" and kind \"([^\"]*)\"$")
 	public void login_with_name_and_password_and_kindcode(String name, String password, String kind) throws Exception {
+		this.name=name;
+		this.password=password;
+		this.kind=kind;
 		MockitoAnnotations.initMocks(this);
 		 InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
 	        viewResolver.setPrefix("/WEB-INF/jsp/view/");
@@ -94,5 +101,22 @@ public class LoginSteps extends AbstractSteps{
 	@Then("^I reach the home page with success$")
 	public void i_receive_a_welcome_message() throws Throwable {
 		MatcherAssert.assertThat(result.getStatus(), equalTo(200));
+	}
+	
+	@Then("^the client receives the string \"([^\"]*)\"$")
+	public void the_client_receives_the_string(String arg1) throws Throwable {
+		MockitoAnnotations.initMocks(this);
+		 InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
+	        viewResolver.setPrefix("/WEB-INF/jsp/view/");
+	        viewResolver.setSuffix(".jsp");
+	 
+		mockMvc = MockMvcBuilders.standaloneSetup(aController).setViewResolvers(viewResolver).build();
+
+		mockMvc.perform(get("http://localhost:8080"));
+		MockHttpServletRequestBuilder request = post("/userForm").param("login", name).param("password", password)
+				.param("kind", kind);
+
+		result = mockMvc.perform(request).andReturn().getResponse();
+		MatcherAssert.assertThat(result.getContentAsString(), contains("Login")!=null);
 	}
 }
