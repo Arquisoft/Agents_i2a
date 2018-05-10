@@ -32,7 +32,7 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-@Ignore public class LoginSteps extends AbstractSteps{
+public class LoginSteps extends AbstractSteps{
 
 	@Mock
 	private AgentsController aController;

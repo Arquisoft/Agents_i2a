@@ -1,12 +1,10 @@
 package cucumber.steps;
 
-import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.equalTo;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 
 import org.hamcrest.MatcherAssert;
-import org.junit.Before;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.mock.web.MockHttpServletResponse;
@@ -27,20 +25,16 @@ public class ChangePasswordSteps extends AbstractSteps{
 	private MockMvc mockMvc;
 	private MockHttpServletResponse result;
 
-	@Before
-	public void init() {
-		MockitoAnnotations.initMocks(this);
-		 InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
-	        viewResolver.setPrefix("/WEB-INF/jsp/view/");
-	        viewResolver.setSuffix(".jsp");
-	 
-		mockMvc = MockMvcBuilders.standaloneSetup(aController).setViewResolvers(viewResolver).build();
-	}
-
 	@And("^I click on change password$")
 	public void i_receive_a_welcome_message() throws Throwable {
-		executeGet("http://localhost:8080/passMenu");
-		MatcherAssert.assertThat(latestResponse.getBody(),containsString("Confirmation")) ;
+		MockitoAnnotations.initMocks(this);
+		InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
+	        viewResolver.setPrefix("/WEB-INF/jsp/view/");
+	        viewResolver.setSuffix(".jsp");
+		mockMvc = MockMvcBuilders.standaloneSetup(aController).setViewResolvers(viewResolver).build();
+		MockHttpServletRequestBuilder request = get("http://localhost:8080");
+		result = mockMvc.perform(request).andReturn().getResponse();
+		MatcherAssert.assertThat(result.getStatus(), equalTo(200)) ;
 	}
 	
 	@And("^I introduce new password \"([^\"]*)\"$")
