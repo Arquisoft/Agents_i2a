@@ -1,7 +1,7 @@
 package cucumber.steps;
 
-import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.contains;
+import static org.hamcrest.Matchers.equalTo;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 
@@ -9,7 +9,6 @@ import java.util.List;
 
 import org.hamcrest.MatcherAssert;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.mock.web.MockHttpServletResponse;
