@@ -23,6 +23,7 @@ import util.JasyptEncryptor;
 public class AgentsController {
 
 	private final AgentsService part;
+	private Agent agentLogged;
 
 	AgentsController(AgentsService part) {
 		this.part = part;
@@ -48,7 +49,11 @@ public class AgentsController {
 			model.addAttribute("error",true);
 			return "login";
 		} else {
-			session.setAttribute("user", user);
+			agentLogged = user;
+			model.addAttribute("name", agentLogged.getName());
+			model.addAttribute("location", agentLogged.getLocation());
+			model.addAttribute("email", agentLogged.getEmail());
+			model.addAttribute("kind", agentLogged.getKind());
 			return "data";
 		}
 	}
@@ -64,7 +69,7 @@ public class AgentsController {
 			@RequestParam String newPassword,
 			@RequestParam String newPasswordConfirm, HttpSession session) {
 		JasyptEncryptor encryptor = new JasyptEncryptor();
-		Agent loggedUser = (Agent) session.getAttribute("user");
+		Agent loggedUser = agentLogged;
 		if (encryptor.checkPassword(password, loggedUser.getPassword())
 				&& newPassword.equals(newPasswordConfirm)) {
 			part.changeInfo(loggedUser, newPassword);
